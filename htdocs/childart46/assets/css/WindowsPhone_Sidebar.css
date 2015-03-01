@@ -1,0 +1,12 @@
+	/** Mango **/
+	.navBar{width:960px;overflow: hidden;margin: 0 auto;}
+	.item{width:960px;display:block;margin: 0 auto;background:rgb(0, 204, 255);}
+	.BarContent{width:960px;-webkit-transition:0.3s ease-in-out;-moz-transition:0.3s ease-in-out;-o-transition:0.3s ease-in-out;margin: 0 auto;}
+	.skew{-webkit-transform-origin:0 0;-o-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scale(0.7) translate(-135px,0px) rotateY(90deg);-o-transform:scale(0.7) translate(-135px,0px) rotate(30deg);-moz-transform:scale(0.7) translate(-135px,0px) rotate(30deg);-ms-transform:scale(0.7) translate(-135px,0px) rotate(30deg);}
+	.control{width:960px;height:60px;margin: 5px auto;background:rgb(0, 204, 255);}
+	.button{width:960px;height:60px;cursor:pointer;}
+	.middle{margin: 0 auto;cursor:pointer;display:block;}
+	.card{float:left;display:block;width:230px;height:230px;-webkit-transition:0.09s ease-in-out;-moz-transition:0.09s ease-in-out;-o-transition:0.09s ease-in-out;cursor:pointer;margin:4px 13px 4px 0;background:rgb(0, 204, 255);}
+	.last{margin-right:0;}
+	.long{width:473px;}
+	.card.cover{-webkit-transform-origin:0 0;-o-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scale(1.3) translate(-35px,-30px) rotateY(90deg) skew(0deg,-30deg);-o-transform:scale(1.1) translate(-35px,-30px)  skew(0deg,-30deg);-moz-transform:scale(1.1) translate(-35px,-30px)  skew(0deg,-30deg);-ms-transform:scale(1.1) translate(-35px,-30px) skew(0deg,-30deg);}
