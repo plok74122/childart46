@@ -153,4 +153,24 @@ class Childart46_model extends CI_Model {
 		$query = $this->Childart46->get_where('user',$check_array);
 		return $query->num_rows();
 	}	
+	
+	//ajax關鍵字
+	public function ajax_keyword($keyword_array)
+	{
+		for($i=0 ; $i < count($keyword_array) ; $i++)
+		{
+		 $this->Childart46->like('concat_ws(`no`,`name`,`title`,`grade`,`teacher`,school_name)',$keyword_array[$i]);
+		}
+		$this->Childart46->limit(10);
+		$query = $this->Childart46->get('all_item');
+		return $query->result_array();
+	}
+	//透過年級取得selectclass
+	public function get_selectclass($grade)
+	{
+		$this->Childart46->select('class');
+		$query = $this->Childart46->get_where('class', array('grade' => $grade));
+		$return = $query ->first_row('array');
+		return $return['class'];
+	}
 }

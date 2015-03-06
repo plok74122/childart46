@@ -26,7 +26,7 @@
 				  <tr>
 				  	<td>
 				  		<label class="control-label" for="phone"><?php echo $name."-".$phone;?></label>
-				  		<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x1050&data=<?php echo urlencode($url)?>" height="250" width="250">
+				  		<img src="<?php echo base_url('childart46/qrcode');?>?str=<?php echo urlencode($url)?>" height="250" width="250">
 				  	</td>
 				  </tr>
 				  <tr>

@@ -18,6 +18,11 @@
 					<dt><a href="<?php echo base_url("childart46/statistics?group=".urlencode($this->encrypt->encode('group')));?>">團體組</a></dt>
 				</dl>
 			<?php if($this->session->userdata('admin')!=""):?>
+			<h1 class="first">管理操作</h1>
+				<dl class="nav3-grid">
+					<dt><a href="<?php echo base_url("superclps/receive_qrcode");?>">收件掃描</a></dt>
+					<dt><a href="<?php echo base_url("superclps/evaluation_item_qrcode");?>">評鑑掃描</a></dt>
+			</dl>				
 			<h1 class="first">獲獎名單</h1>
 				<dl class="nav3-grid">
 					<dt><a href="<?php echo base_url("superclps/rank_list_PDF?str=".urlencode($this->encrypt->encode('kindergarten')));?>">幼兒園組</a></dt>

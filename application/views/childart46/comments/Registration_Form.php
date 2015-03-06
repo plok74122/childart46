@@ -84,7 +84,7 @@
 				</table>
 				</FORM>
 	</div>
-
+	<div id="prog"></div>
 <script>
 $(function(){
 	$("#create_pdf").validate({
@@ -157,6 +157,7 @@ $(function(){
 	});
 	//初始化組別
 	$.ajax({
+		
 		url:"<?php echo base_url("/childart46/ajax_class_one");?>",
 		success:function(respones){
 			var obj=$.parseJSON(respones);
@@ -191,11 +192,13 @@ $(function(){
 		{
 			$('#sex').attr('disabled',false);
 		}
+		$.blockUI({ message: '讀取年級與地區資訊' ,overlayCSS: { backgroundColor: '#DF013A' },css: {border: 'none',padding: '15px',backgroundColor: '#000','-webkit-border-radius': '10px','-moz-border-radius': '10px',opacity: .5,color: '#fff' } });
 		$.ajax({
 			url:"<?php echo base_url("/childart46/ajax_class");?>",
 			type:"post",
 			data:({'class': $('#selectclass').val()}),
 			success:function(respones){
+				
 				var obj=$.parseJSON(respones);
 				//清空選單
 				$('#grade').empty();
@@ -211,6 +214,7 @@ $(function(){
 			type:"post",
 			data:({'class': $('#selectclass').val()}),
 			success:function(respones){
+				$.unblockUI({ fadeOut: 500 });
 				var obj=$.parseJSON(respones);
 				//清空選單
 				$('#school').empty();
@@ -225,11 +229,13 @@ $(function(){
 	});
 	//處理選擇地區
 	$('#region').change(function(){
+		$.blockUI({ message: '讀取該地區學校資訊' ,overlayCSS: { backgroundColor: '#DF013A' },css: {border: 'none',padding: '15px',backgroundColor: '#000','-webkit-border-radius': '10px','-moz-border-radius': '10px',opacity: .5,color: '#fff' } });
 		$.ajax({
 			url:"<?php echo base_url("/childart46/ajax_school");?>",
 			type:"post",
 			data:({'class': $('#selectclass').val(),'region': $('#region').val()}),
 			success:function(respones){
+				$.unblockUI({ fadeOut: 500 });
 				var obj=$.parseJSON(respones);
 				//清空選單
 				$('#school').empty();

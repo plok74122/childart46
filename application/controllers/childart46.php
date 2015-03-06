@@ -8,6 +8,8 @@ class Childart46 extends CI_Controller {
 		$this->load->library('parser');
 		$this->load->library('encrypt');
 		$this->load->library('session');
+		$this->load->helper('html');
+		$this->load->helper('url');
 		//產生表頭
 		echo doctype();
 		$meta = array(
@@ -27,13 +29,14 @@ class Childart46 extends CI_Controller {
 		echo script_tag('childart46/assets/lwtCountdown/js/jquery.lwtCountdown-1.0.js');
 		echo script_tag('childart46/assets/lwtCountdown/js/misc.js');
 		echo script_tag('childart46/assets/js/jquery-ui-1.10.3.js');
-		echo script_tag('childart46/assets/js/datepickerCHT.js');
+		echo script_tag('childart46/assets/js/jquery.blockUI.js');
+//		echo script_tag('childart46/assets/js/datepickerCHT.js');
 	}
 	public function index()
 	{
 		$this->load->view("childart46/templates/header");
 		$this->load->view("childart46/templates/main_navigation");
-		$this->load->view('news/bulletin');
+		$this->load->view('childart46/news/bulletin');
 		$this->load->view("childart46/templates/footer");
 	}
 	public function Registration_Form()
@@ -72,7 +75,7 @@ class Childart46 extends CI_Controller {
 	{
 		echo link_tag(array('href'=>'childart46/assets/css/jquery.mobile-1.3.1.css', 'rel' => 'stylesheet','type' => 'text/css','media'=>'screen,projection,print'));	
 		echo script_tag('childart46/assets/js/jquery.mobile-1.3.1.min.js');
-		
+
 		$info =  explode("θ",$this->encrypt->decode($this->input->get('ssid')));
 		$info_array['name'] = $info[0];
 		$info_array['year'] = $info[1];
@@ -303,6 +306,13 @@ class Childart46 extends CI_Controller {
 		$this->load->view("childart46/templates/footer");
 		
 	}
+	public function qrcode()
+	{
+		ob_clean();
+		$this->load->library('My_qrcode');
+		$this->my_qrcode->qrcode($this->input->get('str'));
+	}	
+	
 }
 
 ?>
