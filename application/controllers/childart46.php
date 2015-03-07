@@ -37,8 +37,18 @@ class Childart46 extends CI_Controller {
 	{
 		$this->load->view("childart46/templates/header");
 		$this->load->view("childart46/templates/main_navigation");
-		$this->load->view('childart46/news/bulletin');
+		$this->load->view('childart46/comments/about');
 		$this->load->view("childart46/templates/footer");
+	  echo "<script>
+	  $(function() {
+			$.blockUI({ 
+				message: '<font size=\"5\">1.此次報名皆採網站列印報名表，不接受手寫報名表。<br>2.每人限報一件作品，於送件作業中系統將自動辨識。<br>3.請務必詳讀網站報名表使用說明!</font><br><font size=\"2\">(點擊畫面任意位置可消除此視窗)</font>' ,
+				overlayCSS: { backgroundColor: '#DF013A' },
+				css: { width:'400px',border: 'none',padding: '15px',backgroundColor: '#000','-webkit-border-radius': '10px','-moz-border-radius': '10px',opacity: .5,color: '#fff'},
+				onOverlayClick: $.unblockUI 
+			});
+	  });
+	  </script>";
 	}
 	public function Registration_Form()
 	{
