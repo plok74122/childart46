@@ -1,3 +1,9 @@
+<?php
+	$time1=mktime(17,0,0,4,25,2015);
+	$time2=mktime(8,0,0,4,26,2015);
+	$time3=mktime(14,0,0,4,26,2015);
+	$time =time();
+?>
 <title>第四十六屆世界兒童畫展</title>
 <!-- Global IE fix to avoid layout crash when single word size wider than column width -->
 <!--[if IE]><style type="text/css"> body {word-wrap: break-word;}</style><![endif]-->
@@ -44,7 +50,15 @@
 				<!-- Countdown dashboard start -->
 				<div id="countdown_dashboard">
 		      <div class="sitemessage">
+		      	<?php if($time1 >=  $time):?>
 		        <h1>截止收件</h1>
+		        <?php elseif($time2 >= $time):?>
+		        <h1>開始評選</h1>
+		        <?php elseif($time3 >= $time):?>
+		        <h1>公布成績</h1>
+		        <?php else:?>
+		        <h1>比賽結束</h1>
+		        <?php endif;?>
 		      </div>   
 					<div class="dash weeks_dash">
 						<span class="dash_title">周</span>
@@ -88,12 +102,35 @@
 			jQuery(document).ready(function() {
 				$('#countdown_dashboard').countDown({
 					targetDate: {
-						'day': 		11,
+					<?php if($time1 >=  $time):?>
+						'day': 		25,
 						'month': 	4,
 						'year': 	2015,
-						'hour': 	11,
+						'hour': 	17,
 						'min': 		0,
 						'sec': 		0
+					<?php elseif($time2 >=  $time):?>
+						'day': 		26,
+						'month': 	4,
+						'year': 	2015,
+						'hour': 	8,
+						'min': 		0,
+						'sec': 		0		
+					<?php elseif($time3 >=  $time):?>
+						'day': 		26,
+						'month': 	4,
+						'year': 	2015,
+						'hour': 	14,
+						'min': 		0,
+						'sec': 		0	
+		       <?php else:?>
+						'day': 		26,
+						'month': 	4,
+						'year': 	2014,
+						'hour': 	14,
+						'min': 		0,
+						'sec': 		0	
+		       <?php endif;?>				
 					}
 				});
 			});

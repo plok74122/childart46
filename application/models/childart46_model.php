@@ -69,9 +69,11 @@ class Childart46_model extends CI_Model {
 	}
 	public function get_class()
 	{
-		$this->Childart46->select('class_note,class');
-		$this->Childart46->group_by('class');
-		$query = $this->Childart46->get('class');
+		$sql = "SELECT `class_note`,`class` from `class` group by `class` order by FIELD(`class_note`,'幼兒園組','國小低年級組','國小中年級組','國小高年級組','國中組','團體組')";
+//		$this->Childart46->select('class_note,class');
+//		$this->Childart46->group_by('class');
+//		$query = $this->Childart46->get('class');
+		$query = $this->Childart46->query($sql);
 		return $query->result_array();
 	}
 	public function get_class_condition($database)

@@ -4,6 +4,7 @@ class Childart46 extends CI_Controller {
 	{
 		parent::__construct();
 		ob_start();
+		date_default_timezone_set('Asia/Taipei');
 		$this->load->model('childart46_model');
 		$this->load->library('parser');
 		$this->load->library('encrypt');
@@ -311,8 +312,35 @@ class Childart46 extends CI_Controller {
 		ob_clean();
 		$this->load->library('My_qrcode');
 		$this->my_qrcode->qrcode($this->input->get('str'));
-	}	
-	
+	}
+	//關於這個畫展
+	public function about()
+	{
+		$this->load->view("childart46/templates/header");
+		$this->load->view("childart46/templates/main_navigation");
+		$this->load->view('childart46/comments/about');
+		$this->load->view("childart46/templates/footer");
+	}
+	//網站產生報名表使用說明
+	public function howtocreate()
+	{
+		$this->load->view("childart46/templates/header");
+		$this->load->view("childart46/templates/main_navigation");
+		$this->load->view('childart46/comments/howtocreate');
+		$this->load->view("childart46/templates/footer");
+	}
+	//網頁版得獎清單
+	public function winners()
+	{
+		$database = $this->encrypt->decode($this->input->get('group'));
+		$receive_list['class_note'] = $this->childart46_model->get_class_condition($database);
+		$receive_list['count'] = $this->childart46_model->rank_count($database);
+		$receive_list['item'] = $this->childart46_model->rank_list($database);
+		$this->load->view("childart46/templates/header");
+		$this->load->view("childart46/templates/main_navigation");
+		$this->load->view('childart46/comments/Winners',$receive_list);
+		$this->load->view("childart46/templates/footer");
+	}
 }
 
 ?>

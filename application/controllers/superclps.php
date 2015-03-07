@@ -4,6 +4,7 @@ class Superclps extends CI_Controller {
 	{
 		ob_start();
 		parent::__construct();
+		date_default_timezone_set('Asia/Taipei');
 		$this->load->model('childart46_model');
 		$this->load->library('parser');
 		$this->load->library('encrypt');

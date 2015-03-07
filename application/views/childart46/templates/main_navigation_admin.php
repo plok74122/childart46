@@ -13,8 +13,8 @@
 				<!-- Navigation with grid style -->
 				<dl class="nav3-grid">
 					<dt><a href="<?php echo base_url("/childart46/Registration_Form");?>">創建您的報名表</a></dt>
-					<dt><a href="<?php echo base_url("");?>">比賽規則</a></dt>
-					<dt><a href="<?php echo base_url("");?>">關於世界兒童畫展</a></dt>
+					<dt><a href="<?php echo base_url("/childart46/about");?>">第46屆世界兒童畫展作品比賽徵集</a></dt>
+					<dt><a href="<?php echo base_url("/childart46/howtocreate");?>">網站報名表使用說明</a></dt>
 				</dl>
 			<h1 class="first">參賽狀況</h1>
 				<dl class="nav3-grid">
@@ -25,6 +25,17 @@
 					<dt><a href="<?php echo base_url("childart46/statistics?group=".urlencode($this->encrypt->encode('junior')));?>">國中組</a></dt>
 					<dt><a href="<?php echo base_url("childart46/statistics?group=".urlencode($this->encrypt->encode('group')));?>">團體組</a></dt>
 				</dl>
+				<?php if(mktime(14,0,0,4,26,2015) <= time()):?>
+				<h1 class="first">獲獎名單</h1>
+					<dl class="nav3-grid">
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('kindergarten')));?>">幼兒園組</a></dt>
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('elementary_low')));?>">國小低年級組</a></dt>
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('elementary_middle')));?>">國小中年級組</a></dt>
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('elementary_high')));?>">國小高年級組</a></dt>
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('junior')));?>">國中組</a></dt>
+						<dt><a href="<?php echo base_url("childart46/winners?group=".urlencode($this->encrypt->encode('group')));?>">團體組</a></dt>
+					</dl>
+				<?php endif;?>					
 			<h1 class="first">管理操作</h1>
 				<dl class="nav3-grid">
 					<dt><a href="<?php echo base_url("superclps/receive_qrcode");?>">收件掃描</a></dt>
