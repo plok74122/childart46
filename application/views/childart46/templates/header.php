@@ -1,10 +1,11 @@
 <?php
-	$time1=mktime(17,0,0,4,25,2015);
-	$time2=mktime(8,0,0,4,26,2015);
-	$time3=mktime(14,0,0,4,26,2015);
+	$times=mktime(8,0,0,4,13,2015);
+	$time1=mktime(16,0,0,4,15,2015);
+	$time2=mktime(8,0,0,4,18,2015);
+	$time3=mktime(15,0,0,4,18,2015);
 	$time =time();
 ?>
-<title>第四十六屆世界兒童畫展</title>
+<title>桃園市第四十六屆世界兒童畫展</title>
 <!-- Global IE fix to avoid layout crash when single word size wider than column width -->
 <!--[if IE]><style type="text/css"> body {word-wrap: break-word;}</style><![endif]-->
 <body>
@@ -22,7 +23,7 @@
         <!-- Sitelogo and sitename -->
         <a class="sitelogo" href="<?php echo base_url('');?>" title="前往首頁"></a>
         <div class="sitename">
-          <h1><a href="<?php echo base_url();?>" title="前往首頁">第四十六屆世界兒童畫展</a></h1>
+          <h1 style="font-size: 202%;"><a href="<?php echo base_url();?>" title="前往首頁">桃園市第四十六屆世界兒童畫展</a></h1>
         </div>
     
         <!-- Navigation Level 0 -->
@@ -50,7 +51,9 @@
 				<!-- Countdown dashboard start -->
 				<div id="countdown_dashboard">
 		      <div class="sitemessage">
-		      	<?php if($time1 >=  $time):?>
+		      	<?php if($times >=  $time):?>
+		        <h1>開始收件</h1>		      	
+		      	<?php elseif($time1 >=  $time):?>
 		        <h1>截止收件</h1>
 		        <?php elseif($time2 >= $time):?>
 		        <h1>開始評選</h1>
@@ -102,32 +105,39 @@
 			jQuery(document).ready(function() {
 				$('#countdown_dashboard').countDown({
 					targetDate: {
-					<?php if($time1 >=  $time):?>
-						'day': 		25,
+					<?php if($times >=  $time):?>
+						'day': 		13,
 						'month': 	4,
 						'year': 	2015,
-						'hour': 	17,
+						'hour': 	8,
+						'min': 		0,
+						'sec': 		0					
+					<?php elseif($time1 >=  $time):?>
+						'day': 		15,
+						'month': 	4,
+						'year': 	2015,
+						'hour': 	16,
 						'min': 		0,
 						'sec': 		0
 					<?php elseif($time2 >=  $time):?>
-						'day': 		26,
+						'day': 		18,
 						'month': 	4,
 						'year': 	2015,
 						'hour': 	8,
 						'min': 		0,
 						'sec': 		0		
 					<?php elseif($time3 >=  $time):?>
-						'day': 		26,
+						'day': 		18,
 						'month': 	4,
 						'year': 	2015,
-						'hour': 	14,
+						'hour': 	15,
 						'min': 		0,
 						'sec': 		0	
 		       <?php else:?>
-						'day': 		26,
+						'day': 		18,
 						'month': 	4,
 						'year': 	2014,
-						'hour': 	14,
+						'hour': 	15,
 						'min': 		0,
 						'sec': 		0	
 		       <?php endif;?>				
