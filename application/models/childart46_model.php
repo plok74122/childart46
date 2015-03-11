@@ -175,4 +175,16 @@ class Childart46_model extends CI_Model {
 		$return = $query ->first_row('array');
 		return $return['class'];
 	}
+	//統計學校收件數量
+	public function count_school($school)
+	{
+		$sql = "SELECT  '個人賽' as `title` , COUNT(*) as `count` FROM  `all_item` WHERE  `school` =".$school." union SELECT '集體創作' as `title` , COUNT(*) as `count` FROM `all_item`  where `school`=".$school." and `type`='集體創作'";
+		$query = $this->Childart46->query($sql);
+		
+		foreach ($query->result() as $row)
+		{
+			$return_array[] = $row->title."：".$row->count."件";
+		}
+		return $return_array;
+	}
 }

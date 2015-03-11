@@ -10,13 +10,14 @@
 		  <thead>
 		    <tr>
 		    	<th>參賽狀態</th>
+		      <th>學校</th>
+		    	<th>計數器</th>
 		      <th>參賽類別</th>
 		      <th>畫題</th>
 		      <th>姓名</th>
 		      <th>年級</th>
 		      <th>年齡</th>
 		      <th>性別</th>
-		      <th>學校</th>
 		      <th>地址</th>
 		      <th>電話</th>
 		      <th>指導老師</th>
@@ -25,13 +26,14 @@
 		  <tbody>
 		    <tr>
 		    	<th><?php echo $item_status;?></th>
+		    	<td><?php echo $city.$school_name;?></td>
+		    	<th><?php echo implode("|",$countstr);?></th>
 		      <td><?php echo $type;?></td>
 		      <td><?php echo $title;?></td>
 		      <td><?php echo $name;?></td>
 		      <td><?php echo $grade."(".$class_note.")";?></td>
 		      <td><?php echo $year;?></td>
-		      <td><?php echo $sex;?></td>
-		      <td><?php echo $city.$school_name;?></td>
+		      <td><?php echo $sex;?></td>    
 		      <td><?php echo $address;?></td>
 		      <td><?php echo $phone;?></td>
 		      <td><?php echo $teacher."老師";?></td>

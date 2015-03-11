@@ -107,13 +107,14 @@ class Childart46 extends CI_Controller {
 
 		//判斷完成收件狀態後補上其他的資訊
 		$school_info = $this->childart46_model->get_schoole_info($info[5]);
-		$get_class_note = $this->childart46_model->pdf_class_note($info[3]);
+		$get_class_note = $this->childart46_model->pdf_class_note($info[3]);	
 		$info_array['city']=$school_info[0]['city'];
 		$info_array['school_name']=$school_info[0]['name'];
 		$info_array['address']=$school_info[0]['address'];
 		$info_array['phone']=$school_info[0]['phone'];
 		$info_array['class_note'] = $get_class_note[0]['class_note'];
 		$info_array['rank'] = $return_array[0]['rank'];
+		$info_array['countstr'] = $this->childart46_model->count_school($info[5]);	
 		if($return_array[0]['no']=="")
 		{
 			$info_array['item_status'] = "未收件";
@@ -188,6 +189,7 @@ class Childart46 extends CI_Controller {
 					$info_array['alert'] = "刪除失敗";
 				}
 			}
+//			print_r($info_array);
 			$this->load->view('childart46/item_mobile/superclps',$info_array);
 		}
 		else if($this->session->userdata('admin')=="evaluation_item")
