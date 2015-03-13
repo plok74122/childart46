@@ -44,7 +44,9 @@ class Childart46 extends CI_Controller {
 			$.blockUI({ 
 				message: '<font size=\"5\">1.此次報名皆採網站列印報名表，不接受手寫報名表。<br>2.每人限報一件作品，於送件作業中系統將自動辨識。<br>3.請務必詳讀網站報名表使用說明!<br>4.本站學校清單採用教育部統計處2014年12月20日資料，於該日期後立案學校請洽中壢國小教務處（電話：03-4255216＃210）新增學校資料。<br>5.請使用IE9(含)以上、Chrome或Firefox，避免產生報名表時有錯誤!</font><br><font size=\"2\">(點擊畫面任意位置可消除此視窗)</font>' ,
 				overlayCSS: { backgroundColor: '#DF013A' },
-				css: { width:'400px',border: 'none',padding: '15px',backgroundColor: '#000','-webkit-border-radius': '10px','-moz-border-radius': '10px',opacity: .5,color: '#fff'},
+				centerY: false,
+				centerX: false,
+				css: { left: $(document).width()*0.125,top: '10px', width:$(document).width()*0.75,border: 'none',padding: '15px',backgroundColor: '#000','-webkit-border-radius': '10px','-moz-border-radius': '10px',opacity: .5,color: '#fff'},
 				onOverlayClick: $.unblockUI 
 			});
 	  });
@@ -331,6 +333,16 @@ class Childart46 extends CI_Controller {
 		$this->load->view("childart46/templates/header");
 		$this->load->view("childart46/templates/main_navigation");
 		$this->load->view('childart46/comments/about');
+		$this->load->view("childart46/templates/footer");
+	}
+	//常見問題
+	public function question()
+	{
+		$this->load->library('My_user_computer_info');
+		$info = $this->my_user_computer_info->user_computer_info($this->input->ip_address(),$this->input->user_agent());
+		$this->load->view("childart46/templates/header");
+		$this->load->view("childart46/templates/main_navigation");
+		$this->load->view('childart46/comments/question',$info);
 		$this->load->view("childart46/templates/footer");
 	}
 	//網站產生報名表使用說明

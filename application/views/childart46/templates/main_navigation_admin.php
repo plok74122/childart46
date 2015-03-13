@@ -15,6 +15,7 @@
 					<dt><a href="<?php echo base_url("/childart46/Registration_Form");?>">創建您的報名表</a></dt>
 					<dt><a href="<?php echo base_url("/childart46/about");?>">第46屆世界兒童畫展作品比賽徵集</a></dt>
 					<dt><a href="<?php echo base_url("/childart46/howtocreate");?>">網站報名表使用說明</a></dt>
+					<dt><a href="<?php echo base_url("/childart46/question");?>">常見問題</a></dt>
 				</dl>
 			<h1 class="first">參賽狀況</h1>
 				<dl class="nav3-grid">
